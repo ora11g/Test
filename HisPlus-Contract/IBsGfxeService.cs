@@ -1,4 +1,5 @@
 ﻿using HisPlus.Domain;
+using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace HisPlus.Contract
 {
     public interface IBsGfxeService
     {
-        BsGfxeInfo GetById(int id);
+        BsGfxeInfo GetById(ISessionFactory sessionFactory, int id);
 
-        List<BsGfxeInfo> Query();
+        List<BsGfxeInfo> Query(ISessionFactory sessionFactory);
     }
 }

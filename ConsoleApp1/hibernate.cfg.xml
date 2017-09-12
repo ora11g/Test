@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  
+
+  <hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+    <session-factory>
+       <!-- properties -->
+      <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+      <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+      <property name="connection.connection_string">Data Source=localhost;Initial Catalog=HIS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False</property>
+      <property name="show_sql">true</property>
+      <property name="dialect">NHibernate.Dialect.MsSql2012Dialect</property>
+      
+      <!--配置二级缓存-->
+      <!--<property name="cache.provider_class">NHibernate.Caches.SysCache.SysCacheProvider,NHibernate.Caches.SysCache</property>      
+      <property name="cache.use_second_level_cache">true</property>
+      <property name="cache.use_query_cache">true</property>
+      <property name="cache.default_expiration">300</property>-->
+      <!--<property name="cache.region_prefix">prefix</property>-->
+      
+      <!--<mapping assembly="HisPlus.Mapping"/>-->
+      <!--<class-cache class="HisPlus.Domain.BsGfxeInfo, HisPlus.Domain"  include="all" usage="read-write"/>-->      
+    </session-factory>
+  </hibernate-configuration>
+
+</configuration>

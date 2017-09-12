@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HisPlus.Domain.Mapping</RootNamespace>
-    <AssemblyName>HisPlus-Mapping</AssemblyName>
+    <AssemblyName>HisPlus.Mapping</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

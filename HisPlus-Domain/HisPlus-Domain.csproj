@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HisPlus.Domain</RootNamespace>
-    <AssemblyName>HisPlus-Domain</AssemblyName>
+    <AssemblyName>HisPlus.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,7 +46,6 @@
     <Compile Include="BsLocationInfo.cs" />
     <Compile Include="BsPatientInfo.cs" />
     <Compile Include="BsUserInfo.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TEntity.cs" />
   </ItemGroup>

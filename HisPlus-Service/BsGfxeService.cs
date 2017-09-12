@@ -1,45 +1,48 @@
-﻿using HisPlus.Contract;
+﻿using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using HisPlus.Contract;
 using HisPlus.Domain;
-using SmartElk.Antler.Core.Domain;
+using HisPlus.Mapping;
+using NHibernate;
+using NHibernate.Caches.SysCache;
+using NHibernate.Cfg;
+using NHibernate.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HisPlus.Service
 {
     public class BsGfxeService : IBsGfxeService
-    {
-        public BsGfxeInfo GetById(int id)
+    {        
+        public BsGfxeInfo GetById(ISessionFactory sessionFactory, int id)
         {
-            return UnitOfWork.Do(uow =>
+            using (ISession session = sessionFactory.OpenSession())
             {
-                uow.Repo<BsGfxeInfo>().GetById(id);
-                var result = uow.Repo<BsGfxeInfo>().GetById(id);
-                return result;
-            });
+                BsGfxeInfo gfxe = session.Get<BsGfxeInfo>(1);
+                Console.WriteLine(gfxe.Id + " : " + gfxe.Name);
+
+                BsGfxeInfo gfxe1 = session.Get<BsGfxeInfo>(1);
+                Console.WriteLine(gfxe1.Id + " : " + gfxe1.Name);
+                return gfxe;
+            }            
         }
 
-        public List<BsGfxeInfo> Query()
+        public List<BsGfxeInfo> Query(ISessionFactory sessionFactory)
         {
-            return UnitOfWork.Do(uow =>
+            using (ISession session = sessionFactory.OpenSession())
             {
-                
-                //var result = uow.Repo<BsGfxeInfo>().GetById(id);
-                return null;
-            });
+                var query = session.Query<BsGfxeInfo>()
+                    .Cacheable()
+                    .CacheMode(CacheMode.Normal)
+                    .CacheRegion("All")
+                    ;
 
-            //using (var session = this._sessionFactory.OpenSession())
-            //{
-            //    uow.
-            //    var query = session.Query<Category>()
-            //        .Cacheable()
-            //        .CacheMode(CacheMode.Normal)
-            //        .CacheRegion("AllCategories");
-            //    var result = query.ToList();
-            //}
-
+                return query.ToList();
+            }
         }
     }
 }

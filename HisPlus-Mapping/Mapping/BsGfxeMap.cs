@@ -19,6 +19,8 @@ namespace HisPlus.Mapping
             Map(x => x.OrderBy, "OrderBy");
             Map(x => x.IsActive, "IsActive");
             Map(x => x.IconIndex, "IconIndex");
+            Cache.ReadOnly();
+            Cache.Region("All");
         }
     }
 }

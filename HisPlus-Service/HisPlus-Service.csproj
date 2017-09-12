@@ -30,7 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=6876f2ea66c9f443, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.Caches.SysCache.4.0.0.4000\lib\net40\NHibernate.Caches.SysCache.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,14 +61,18 @@
       <Project>{65e14a03-df0e-4718-95cd-42d19cf7494d}</Project>
       <Name>HisPlus-Contract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HisPlus-Core\HisPlus-Core.csproj">
-      <Project>{3554d298-061c-460c-b5bf-8f944155bf3d}</Project>
-      <Name>HisPlus-Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HisPlus-Domain\HisPlus-Domain.csproj">
       <Project>{b2a5f180-a906-4768-9e6a-2081f3ec5a9b}</Project>
       <Name>HisPlus-Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HisPlus-Mapping\HisPlus-Mapping.csproj">
+      <Project>{b971722c-ed26-4f92-b4d1-e06afe1a59f8}</Project>
+      <Name>HisPlus-Mapping</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
